@@ -29,6 +29,8 @@ addBookToLibrary('The Colour of Magic', 'Sir Terry Pratchett', 500);
 
 addBookToLibrary('The Light Fantastic', 'Sir Terry Pratchett', 450);
 
+// Display books in inventory
+
 console.log(library);
 
 function showBooks() {
@@ -48,3 +50,16 @@ function showBooks() {
 }
 
 showBooks();
+
+// Link up to form
+
+// link up to button and form
+const newBookButton = document.getElementById('new-book-button');
+const bookForm = document.getElementById('book-form');
+
+// Listener for new book button & show/hide form
+
+newBookButton.addEventListener('click', () => {
+    bookForm.style.display = bookForm.style.display === 'block' ? 'none' : block;
+});
+
