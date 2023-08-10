@@ -2,18 +2,19 @@ let library = [];
 
 // Book object
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 
     this.info = function() {
         return `${this.title}, ${this.author}, ${this.pages}`;
     };
 }
 
-function addBookToLibrary(title, author, pages) {
-    const newBook = new Book(title, author, pages);
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
     library.push(newBook);
 }
 
@@ -25,9 +26,9 @@ function addBookToLibrary(title, author, pages) {
 
 // Test adding new book to library
 
-addBookToLibrary('The Colour of Magic', 'Sir Terry Pratchett', 500);
+addBookToLibrary('The Colour of Magic', 'Sir Terry Pratchett', 500, true);
 
-addBookToLibrary('The Light Fantastic', 'Sir Terry Pratchett', 450);
+addBookToLibrary('The Light Fantastic', 'Sir Terry Pratchett', 450, true);
 
 // Display books in inventory
 
@@ -62,6 +63,7 @@ function showBooks() {
 
         bookCard.appendChild(bookInfo);
         bookCard.appendChild(removeButton);
+        bookCard.appendChild(toggleReadButton);
         bookContainer.appendChild(bookCard);
     });
 }
@@ -108,4 +110,5 @@ function removeBook(index) {
 
 function toggleReadStatus(index) {
     library[index].read = !library[index].read;
+    showBooks();
 };
