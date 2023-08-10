@@ -37,20 +37,27 @@ function showBooks() {
     const bookContainer = document.querySelector('.book-container');
     bookContainer.innerHTML = '';
 
-    library.forEach((book) => {
+    library.forEach((book, index) => {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
 
         const bookInfo = document.createElement('p');
         bookInfo.textContent = book.info();
 
+        // remove book button
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove Book';
+        removeButton.addEventListener('click', () => {
+            removeBook(index);
+            showBooks();
+        });
+
         bookCard.appendChild(bookInfo);
+        bookCard.appendChild(removeButton);
         bookContainer.appendChild(bookCard);
-    })
+    });
 }
-
 showBooks();
-
 // Link up to form
 
 // link up to button and form
@@ -82,3 +89,8 @@ bookForm.addEventListener('submit', (event) => {
     bookForm.style.display = 'none';
 });
 
+// remove book function
+
+function removeBook(index) {
+    library.splice(index, 1);
+};
