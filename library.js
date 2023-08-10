@@ -52,12 +52,21 @@ function showBooks() {
             showBooks();
         });
 
+        // toggle read status of books in library
+        const toggleReadButton = document.createElement('button');
+        toggleReadButton.textContent = book.read ? 'Mark Unread' : 'Mark Read';
+        toggleReadButton.addEventListener('click', () => {
+            toggleReadStatus(index);
+            showBooks();
+        })
+
         bookCard.appendChild(bookInfo);
         bookCard.appendChild(removeButton);
         bookContainer.appendChild(bookCard);
     });
 }
 showBooks();
+
 // Link up to form
 
 // link up to button and form
@@ -93,4 +102,10 @@ bookForm.addEventListener('submit', (event) => {
 
 function removeBook(index) {
     library.splice(index, 1);
+};
+
+// toggle read status function
+
+function toggleReadStatus(index) {
+    library[index].read = !library[index].read;
 };
