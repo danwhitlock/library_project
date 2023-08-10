@@ -60,7 +60,7 @@ const bookForm = document.getElementById('book-form');
 // Listener for new book button & show/hide form
 
 newBookButton.addEventListener('click', () => {
-    bookForm.style.display = bookForm.style.display === 'block' ? 'none' : block;
+    bookForm.style.display = bookForm.style.display === 'block' ? 'none' : 'block';
 });
 
 // Listener for form submission
