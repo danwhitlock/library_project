@@ -1,0 +1,12 @@
+body {
+    background-image: url(./img/library.jpg);
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.page-container {
+    background-color: rgba(1,1,1,0.5);
+    height: 100vh;
+}
